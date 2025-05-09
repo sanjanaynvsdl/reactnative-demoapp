@@ -1,4 +1,5 @@
 import { View, Text, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useEffect } from 'react';
 import { useRouter } from 'expo-router';
 import { Animated } from 'react-native';
@@ -12,20 +13,21 @@ export default function SplashScreen() {
     // Start fade-in animation
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1000,
+      duration: 2000,
       useNativeDriver: true,
     }).start();
     
     // Navigate to location screen after 2 seconds
     const timer = setTimeout(() => {
       router.replace('/(screens)/location-screen');
-    }, 2000);
+      // console.log("hello")
+    }, 4000);
     
     return () => clearTimeout(timer);
   }, []);
   
   return (
-    <View className="flex-1 justify-center items-center bg-primary">
+    <SafeAreaView className="flex-1 justify-center items-center bg-white">
       <Animated.View style={{
         opacity: fadeAnim,
         transform: [{
@@ -41,9 +43,9 @@ export default function SplashScreen() {
           resizeMode="contain"
         />
         <Text className="text-2xl font-bold text-accent text-center mt-4">
-          Zuvees Delivery
+          shop with zuvees💝
         </Text>
       </Animated.View>
-    </View>
+    </SafeAreaView>
   );
 }

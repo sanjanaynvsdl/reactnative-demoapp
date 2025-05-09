@@ -1,4 +1,5 @@
 import { View, Text, Pressable } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
@@ -28,7 +29,7 @@ export default function LocationPermissionScreen() {
   };
 
   return (
-    <View className="flex-1 bg-primary p-6">
+    <SafeAreaView className="flex-1 bg-primary p-6">
       <View className="flex-1 justify-between">
         <View className="items-center mt-12">
           <Text className="text-3xl font-bold text-accent mb-6">Enable Location</Text>
@@ -56,6 +57,6 @@ export default function LocationPermissionScreen() {
           </Text>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
